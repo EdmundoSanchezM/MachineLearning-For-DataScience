@@ -3,7 +3,7 @@
 #importando dataset
 
 dataset = read.csv('Data.csv')
-
+#dataset = dataset[,2:3]
 #eliminando NAs
 #ave Subconjunto de X promediados a partir de FUN. 
 #mean es promedio, donde na.rm = TRUE se usa para omitar los NA
