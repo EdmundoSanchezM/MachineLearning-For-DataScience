@@ -20,7 +20,7 @@ from sklearn.model_selection import train_test_split
 dataset = pd.read_csv('Data.csv')
 
 # matriz. Obteniendo valores del data frame [filas,columnas]
-X = dataset.iloc[:, :-1].values
+X = dataset.iloc[:, :-1].values #Matriz
 y = dataset.iloc[:, 3].values  # vector
 
 # eliminando NAs

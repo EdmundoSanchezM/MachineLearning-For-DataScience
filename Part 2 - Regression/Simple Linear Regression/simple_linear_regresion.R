@@ -18,7 +18,7 @@ regressor = lm(formula = Salary ~ YearsExperience,
 summary(regressor)
 
 #Predecir resultados con el conjunto de tests
-#Funcion generica. Indicar modelo y data (data con el minos nombre de columnas)
+#Funcion generica. Indicar modelo y data (data con el mismo nombre de columnas)
 y_pred = predict(regressor, newdata=testing_set)
 y_pred
 
