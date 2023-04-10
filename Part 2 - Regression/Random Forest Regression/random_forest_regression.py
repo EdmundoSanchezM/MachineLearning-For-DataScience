@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
 """
-Created on Fri Apr  7 01:46:32 2023
+Created on Sun Apr  9 21:00:28 2023
 
 @author: josue
 """
 
-# Regresion con Arboles de Decision
+
+# Regresion con Bosques Aleatorios
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -32,21 +33,22 @@ X_test = sc_X.transform(X_test)
 """
 
 # Ajustar la regresion con el dataset
-from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor
 #A la hora de cortar se usa el error cuadrado medio tipicamente
-regression = DecisionTreeRegressor(random_state=0)
+#n_estimators: Numero de arboles
+regression = RandomForestRegressor(n_estimators = 330, random_state = 0)
 regression.fit(X,y)
 
 # Prediccion de nuestros modelos
 y_pred = regression.predict([[6.5]])
 
 
-# Visualización de los resultados de Arboles de Decision
-X_grid = np.arange(min(X),max(X),0.1)
+# Visualización de los resultados del Bosque Aleatorio
+X_grid = np.arange(min(X),max(X),0.01)
 X_grid = X_grid.reshape(len(X_grid),1)
 plt.scatter(X, y, color = "red")
 plt.plot(X_grid, regression.predict(X_grid), color = "blue")
-plt.title("Modelo de Arboles de Decision para Regresión")
+plt.title("Modelo de Bosques Aleatorios para Regresión")
 plt.xlabel("Posición del empleado")
 plt.ylabel("Sueldo (en $)")
 plt.show()
