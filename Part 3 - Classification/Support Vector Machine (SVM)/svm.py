@@ -5,16 +5,13 @@ Created on Mon Apr 17 22:53:00 2023
 @author: josue
 """
 
-# Plantilla de Clasificación
+# Support Vector Machine
 
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-from sklearn.impute import SimpleImputer
-from sklearn import preprocessing
-from sklearn.preprocessing import OneHotEncoder, StandardScaler
-from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 
 dataset = pd.read_csv('Social_Network_Ads.csv')
@@ -81,5 +78,4 @@ plt.xlabel('Edad')
 plt.ylabel('Sueldo Estimado')
 plt.legend()
 plt.show()
-
 

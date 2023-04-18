@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Apr 16 16:27:59 2023
+Created on Tue Apr 18 14:48:57 2023
 
 @author: josue
 """
 
-# Regresion Logistica
+# Support Vector Machine
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -30,9 +30,9 @@ X_train = sc_X.fit_transform(X_train)
 X_test = sc_X.transform(X_test)
 
 
-# Ajustar el modelo de Regresion Logistica en el Conjunto de Entrenamiento
-from sklearn.linear_model import LogisticRegression
-classifier = LogisticRegression(random_state=0)
+# Ajustar el SVM en el Conjunto de Entrenamiento
+from sklearn.svm import SVC
+classifier = SVC(kernel="rbf",random_state=0)
 classifier.fit(X_train, y_train)
 
 # Prediccion de los resultados con el conjunto de Testing
@@ -56,7 +56,7 @@ plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
                 c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('Clasificador (Conjunto de Entrenamiento)')
+plt.title('SVM Kernel (Conjunto de Entrenamiento)')
 plt.xlabel('Edad')
 plt.ylabel('Sueldo Estimado')
 plt.legend()
@@ -73,7 +73,7 @@ plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
                 c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('Clasificador (Conjunto de Test)')
+plt.title('SVM Kernel (Conjunto de Test)')
 plt.xlabel('Edad')
 plt.ylabel('Sueldo Estimado')
 plt.legend()
