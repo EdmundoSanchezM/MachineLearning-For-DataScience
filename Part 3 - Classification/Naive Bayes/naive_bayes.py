@@ -1,16 +1,15 @@
 # -*- coding: utf-8 -*-
 """
-Created on Sun Apr 16 16:27:59 2023
+Created on Wed Apr 19 13:11:00 2023
 
 @author: josue
 """
 
-# Plantilla de Clasificación
+# Naive Bayes
 
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-
 
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
@@ -32,7 +31,9 @@ X_test = sc_X.transform(X_test)
 
 
 # Ajustar el clasificador en el Conjunto de Entrenamiento
-#Crear el modelo de clasificacion aqui
+from sklearn.naive_bayes import GaussianNB
+classifier = GaussianNB()
+classifier.fit(X_train,y_train)
 
 # Prediccion de los resultados con el conjunto de Testing
 y_pred = classifier.predict(X_test)
@@ -55,7 +56,7 @@ plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
                 c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('Clasificador (Conjunto de Entrenamiento)')
+plt.title('Naive Bayes (Conjunto de Entrenamiento)')
 plt.xlabel('Edad')
 plt.ylabel('Sueldo Estimado')
 plt.legend()
@@ -72,7 +73,7 @@ plt.ylim(X2.min(), X2.max())
 for i, j in enumerate(np.unique(y_set)):
     plt.scatter(X_set[y_set == j, 0], X_set[y_set == j, 1],
                 c = ListedColormap(('red', 'green'))(i), label = j)
-plt.title('Clasificador (Conjunto de Test)')
+plt.title('Naive Bayes (Conjunto de Test)')
 plt.xlabel('Edad')
 plt.ylabel('Sueldo Estimado')
 plt.legend()
