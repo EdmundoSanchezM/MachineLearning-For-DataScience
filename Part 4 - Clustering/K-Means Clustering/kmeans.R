@@ -1,0 +1,41 @@
+# Clustering con K-means
+
+#importando dataset
+
+dataset = read.csv('Mall_Customers.csv')
+X = dataset[,4:5]
+
+#Metodo del codo
+set.seed(6)
+wcss = vector()
+for (i in 1:10 ){
+  wcss[i] <- sum(kmeans(X, centers = i ,iter.max = 10)$withinss)
+}
+plot(1:10,wcss, type = 'b', main = "Metodo del codo", xlab = "Numero de clusters (k)",
+     ylab = "WCSS(K)")
+
+#Aplicar el modelo del algoritmo de k-means con k optimo
+set.seed(29)
+kmeans <- kmeans(X, centers = 6 ,iter.max = 300, nstart = 10)
+
+
+#Visualizacion de los clusters
+#install.packages("cluster")
+library(cluster)
+clusplot(X,
+         kmeans$cluster,
+         lines = 0,
+         shade = TRUE,
+         color = TRUE,
+         labels = 4,
+         plotchar = FALSE,
+         span = TRUE,
+         main = "Clustering de clientes",
+         xlab = "Ingresos anuales",
+         ylab = "Puntuacion (1-100)")
+
+
+
+
+
+
