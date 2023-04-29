@@ -34,8 +34,3 @@ clusplot(X,
          xlab = "Ingresos anuales",
          ylab = "Puntuacion (1-100)")
 
-
-
-
-
-
